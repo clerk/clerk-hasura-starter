@@ -3,6 +3,7 @@ import { ClerkProvider, SignedIn, SignedOut } from "@clerk/clerk-react";
 import { useRouter } from "next/router";
 import { useEffect } from "react";
 import Layout from "../components/Layout";
+import { ApolloProviderWrapper } from "../lib/apolloClient";
 
 /**
  * List pages you want to be publicly accessible, or leave empty if
@@ -40,7 +41,9 @@ const MyApp = ({ Component, pageProps }) => {
         ) : (
           <>
             <SignedIn>
-              <Component {...pageProps} />
+              <ApolloProviderWrapper>
+                <Component {...pageProps} />
+              </ApolloProviderWrapper>
             </SignedIn>
             <SignedOut>
               <RedirectToSignIn />
