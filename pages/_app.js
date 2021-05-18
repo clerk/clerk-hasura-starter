@@ -1,7 +1,11 @@
 import "../styles/globals.css";
-import { ClerkProvider, SignedIn, SignedOut } from "@clerk/clerk-react";
+import {
+  ClerkProvider,
+  RedirectToSignIn,
+  SignedIn,
+  SignedOut,
+} from "@clerk/clerk-react";
 import { useRouter } from "next/router";
-import { useEffect } from "react";
 import Layout from "../components/Layout";
 import { ApolloProviderWrapper } from "../lib/apolloClient";
 
@@ -14,14 +18,6 @@ import { ApolloProviderWrapper } from "../lib/apolloClient";
  *  "/foo/[...bar]"  for pages/foo/[...bar].js
  */
 const publicPages = ["/", "/sign-in/[[...index]]", "/sign-up/[[...index]]"];
-
-const RedirectToSignIn = () => {
-  const router = useRouter();
-  useEffect(() => {
-    router.push("/sign-in");
-  });
-  return null;
-};
 
 const MyApp = ({ Component, pageProps }) => {
   const router = useRouter();
