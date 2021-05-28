@@ -28,7 +28,6 @@ const MyApp = ({ Component, pageProps }) => {
   return (
     <ClerkProvider
       frontendApi={process.env.NEXT_PUBLIC_CLERK_FRONTEND_API}
-      scriptUrl={process.env.NEXT_PUBLIC_CLERK_JS}
       navigate={(to) => router.push(to)}
     >
       <Layout>
