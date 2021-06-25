@@ -1,34 +1,25 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Clerk - Hasura starter repo
 
-## Getting Started
+<img src="./docs/logo.png" />
 
-First, run the development server:
+This repo shows an example use case for how you can authenticate your Hasura GraphQL service requests using [Clerk](https://clerk.dev) as an authentication provider.
 
-```bash
-npm run dev
-# or
-yarn dev
-```
+## Where the magic happens
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+The integration works by using Clerk as the authorization server providing a JWT structure which can be used to [authenticate requests](https://hasura.io/docs/latest/graphql/core/auth/authentication/jwt.html) on Hasura utilizing a custom header convention `x-hasura-*`. The minimal setup required can be viewed at the Apollo [client configuration file](./lib/apolloClient.js).
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+To get a better understanding of the integration, you can check out our [documentation](https://docs.clerk.dev/frontend/integrations/hasura) on the integration.
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
+## Running the starter
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+To run the example locally you need to:
 
-## Learn More
+1. Sign up for a Clerk account at http://clerk.dev/.
+2. Turn on and [configure the integration](https://docs.clerk.dev/frontend/integrations/hasura) on your Clerk dashboard.
+3. Setup the required Clerk Frontend API variable from your Clerk project and the Hasura GraphQL endpoint as shown at [the example env file](./.env.local.sample).
+4. `yarn` to install the required dependencies.
+5. `yarn dev` and you are good to go.
 
-To learn more about Next.js, take a look at the following resources:
+## Contact
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/import?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+If you have any specific use case or anything you would like to ask, please reach out!
