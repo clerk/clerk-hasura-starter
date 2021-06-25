@@ -9,14 +9,14 @@
     "start": "next start"
   },
   "dependencies": {
-    "@apollo/client": "^3.3.18",
-    "@clerk/clerk-react": "^1.8.0",
-    "graphql": "^15.5.0",
-    "next": "^10.2.0",
+    "@apollo/client": "^3.3.20",
+    "@clerk/clerk-react": "^1.13.0",
+    "graphql": "^15.5.1",
+    "next": "^11.0.1",
     "react": "^17.0.2",
     "react-dom": "^17.0.2"
   },
   "devDependencies": {
-    "vercel": "^23.0.0"
+    "vercel": "^23.0.1"
   }
 }
