@@ -4,7 +4,7 @@ import {
   RedirectToSignIn,
   SignedIn,
   SignedOut,
-} from "@clerk/clerk-react";
+} from "@clerk/nextjs";
 import { useRouter } from "next/router";
 import Layout from "../components/Layout";
 import { ApolloProviderWrapper } from "../lib/apolloClient";
