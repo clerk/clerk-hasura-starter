@@ -4,6 +4,14 @@
 
 This repo shows an example use case for how you can authenticate your Hasura GraphQL service requests using [Clerk](https://clerk.dev) as an authentication provider.
 
+---
+
+**Clerk is Hiring!**
+
+Would you like to work on Open Source software and help maintain this repository? Apply today https://apply.workable.com/clerk-dev/.
+
+---
+
 ## Where the magic happens
 
 The integration works by using Clerk as the authorization server providing a JWT structure which can be used to [authenticate requests](https://hasura.io/docs/latest/graphql/core/auth/authentication/jwt.html) on Hasura utilizing a custom header convention `x-hasura-*`. The minimal setup required can be viewed at the Apollo [client configuration file](./lib/apolloClient.js).
