@@ -16,7 +16,7 @@ Would you like to work on Open Source software and help maintain this repository
 
 The integration works by using Clerk as the authorization server providing a JWT structure which can be used to [authenticate requests](https://hasura.io/docs/latest/graphql/core/auth/authentication/jwt.html) on Hasura utilizing a custom header convention `x-hasura-*`. The minimal setup required can be viewed at the Apollo [client configuration file](./lib/apolloClient.js).
 
-To get a better understanding of the integration, you can check out our [documentation](https://docs.clerk.dev/frontend/integrations/hasura) on the integration.
+To get a better understanding of the integration, you can check out our [documentation](https://docs.clerk.dev/integrations/hasura) on the integration.
 
 ## Running the starter
 
