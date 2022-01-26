@@ -1,6 +1,5 @@
-import Head from "next/head";
-import Link from "next/link";
 import styles from "../styles/Home.module.css";
+import Link from "next/link";
 import { SignedIn, SignedOut } from "@clerk/nextjs";
 
 const ClerkFeatures = () => (
@@ -39,7 +38,7 @@ const SignupLink = () => (
   </Link>
 );
 
-// Main component using <SignedIn> & <SignedOut>.
+// Main component using <SignedIn> and <SignedOut>
 //
 // The SignedIn and SignedOut components are used to control rendering depending
 // on whether or not a visitor is signed in.
@@ -48,7 +47,12 @@ const SignupLink = () => (
 const Main = () => (
   <main className={styles.main}>
     <h1 className={styles.title}>Welcome to your new app</h1>
-    <p className={styles.description}>Sign up for an account to get started</p>
+    <SignedIn>
+      <p className={styles.description}>You have successfully signed in</p>
+    </SignedIn>
+    <SignedOut>
+      <p className={styles.description}>Sign up for an account to get started</p>
+    </SignedOut>
 
     <div className={styles.cards}>
       <div className={styles.card}>
@@ -87,14 +91,13 @@ const Main = () => (
       </Link>
       <Link href="https://nextjs.org/docs">
         <a target="_blank" rel="noreferrer" className={styles.link}>
-          <span className={styles.linkText}>Read NextJS documentation</span>
+          <span className={styles.linkText}>Read Next.js documentation</span>
         </a>
       </Link>
     </div>
   </main>
 );
 
-// Footer component
 const Footer = () => (
   <footer className={styles.footer}>
     <a
@@ -112,14 +115,6 @@ const Footer = () => (
 
 const Home = () => (
   <div className={styles.container}>
-    <Head>
-      <title>Create Next App</title>
-      <link rel="icon" href="/favicon.ico" />
-      <meta
-        name="viewport"
-        content="width=device-width, initial-scale=1.0"
-      ></meta>
-    </Head>
     <Main />
     <Footer />
   </div>
