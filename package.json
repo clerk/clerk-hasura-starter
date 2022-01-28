@@ -3,20 +3,16 @@
   "version": "0.1.1",
   "private": true,
   "scripts": {
-    "predev": "([[ -d .vercel ]] || vercel link) && vercel env pull .env.local",
     "dev": "next dev",
     "build": "next build",
     "start": "next start"
   },
   "dependencies": {
-    "@apollo/client": "^3.3.20",
     "@clerk/nextjs": "^2.0.1",
-    "graphql": "^15.5.1",
-    "next": "^11.0.1",
+    "graphql-request": "^4.0.0",
+    "next": "^12.0.8",
     "react": "^17.0.2",
-    "react-dom": "^17.0.2"
-  },
-  "devDependencies": {
-    "vercel": "^23.0.1"
+    "react-dom": "^17.0.2",
+    "swr": "^1.2.0"
   }
 }

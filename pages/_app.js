@@ -5,9 +5,9 @@ import {
   SignedIn,
   SignedOut,
 } from "@clerk/nextjs";
+import Head from "next/head";
 import { useRouter } from "next/router";
 import Layout from "../components/Layout";
-import { ApolloProviderWrapper } from "../lib/apolloClient";
 
 /**
  * List pages you want to be publicly accessible, or leave empty if
@@ -30,15 +30,21 @@ const MyApp = ({ Component, pageProps }) => {
       frontendApi={process.env.NEXT_PUBLIC_CLERK_FRONTEND_API}
       navigate={(to) => router.push(to)}
     >
+      <Head>
+        <title>Clerk + Hasura Starter</title>
+        <link rel="icon" href="/favicon.ico" />
+        <meta
+          name="viewport"
+          content="width=device-width, initial-scale=1.0"
+        ></meta>
+      </Head>
       <Layout>
         {publicPages.includes(router.pathname) ? (
           <Component {...pageProps} />
         ) : (
           <>
             <SignedIn>
-              <ApolloProviderWrapper>
-                <Component {...pageProps} />
-              </ApolloProviderWrapper>
+              <Component {...pageProps} />
             </SignedIn>
             <SignedOut>
               <RedirectToSignIn />
