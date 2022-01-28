@@ -25,9 +25,15 @@ To run the example locally you need to:
 1. Sign up for a Clerk account at https://clerk.dev/.
 2. Create a Hasura token from your Clerk dashboard and [configure the integration](https://docs.clerk.dev/integrations/hasura).
 3. Set the required Frontend API variable from your Clerk project and the Hasura GraphQL endpoint as shown in [the example env file](./.env.local.sample).
-4. `npm install` the required dependencies.
-5. `npm run dev` and you are good to go.
+4. Set the name of your Hasura JWT template in the [`useQuery` hook](./hooks/index.js#L20)
+5. `npm install` the required dependencies.
+6. `npm run dev` and you are good to go.
+
+## Validating the Hasura integration
+After setting the Hasura token and starting the dev server, visit http://localhost:3000/schema
+
+If you see the number of GraphQL schema types, the authenticated request to Hasura has been made successfully. If not, check your browser console and network logs for errors.
 
 ## Contact
 
-If you have any specific use case or anything you would like to ask, please reach out in our [Discord channel](https://discord.com/invite/b5rXHjAg7A). We'd love to chat!
+If you need support or have anything you would like to ask, please reach out in our [Discord channel](https://discord.com/invite/b5rXHjAg7A). We'd love to chat!
