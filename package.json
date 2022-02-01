@@ -2,9 +2,11 @@
   "name": "clerk-hasura-starter",
   "version": "0.1.1",
   "private": true,
+  "description": "Starter Next.js template for authenticating requests to Hasura with Clerk",
+  "keywords": ["clerk", "hasura", "nextjs", "react", "graphql"],
   "scripts": {
-    "dev": "next dev",
     "build": "next build",
+    "dev": "next dev",
     "start": "next start"
   },
   "dependencies": {
