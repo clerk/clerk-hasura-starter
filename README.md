@@ -34,6 +34,67 @@ After setting the Hasura token and starting the dev server, visit http://localho
 
 If you see the number of GraphQL schema types, the authenticated request to Hasura has been made successfully. If not, check your browser console and network logs for errors.
 
+## `useQuery` hook
+
+[`useQuery`](./hooks/index.js#L12) is a data fetching hook composed with [useSWR](https://swr.vercel.app/docs/data-fetching#graphql) which sets the fetcher function as [graphql-request](https://github.com/prisma-labs/graphql-request) and includes the Hasura token generated with a Clerk JWT template in the `Authorization` header.
+
+### Queries
+
+To make a GraphQL query with the `useQuery` hook, pass your query as the first parameter:
+
+```jsx
+const { data, error } = useQuery(
+  `{ 
+    countries {
+      code
+      name
+      capital
+    }
+  }`
+);
+```
+
+### Mutations
+
+When performing a mutation, you can pass in variables as the second parameter:
+
+```jsx
+const { error } = useQuery(
+  `mutation ($country: countries_insert_input = {}) {
+    insert_countries_one(object: $country) {
+      code
+      name
+    }
+  }`,
+  {
+    country: {
+      code: 'AR',
+      name: 'Argentina',
+      capital: 'Buenos Aires'
+    }
+  }
+);
+```
+
+### Skipping a request
+
+If you would like a request to be skipped, pass a truthy value as the third parameter:
+
+```jsx
+const skipQuery = true;
+const { data, error } = useQuery(
+  `{ 
+    countries_by_pk(code: 'AR') {
+      name
+    }
+  }`,
+  null,
+  skipQuery
+);
+```
+
+The query is not executed in this case.
+
 ## Contact
 
 If you need support or have anything you would like to ask, please reach out in our [Discord channel](https://discord.com/invite/b5rXHjAg7A). We'd love to chat!

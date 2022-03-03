@@ -1,5 +1,5 @@
 import { request } from "graphql-request";
-import { useSession } from "@clerk/nextjs";
+import { useAuth } from "@clerk/nextjs";
 import useSWR from "swr";
 
 /**
@@ -13,12 +13,14 @@ import useSWR from "swr";
   if (!query) {
     throw Error("No query provided to `useQuery`");
   }
-  const { getToken } = useSession();
+
+  const { getToken } = useAuth();
   const endpoint = process.env.NEXT_PUBLIC_HASURA_GRAPHQL_API;
-  const fetcher = async () =>
-    request(endpoint, query, variables, {
-      authorization: `Bearer ${await getToken({ template: "your-template-name" })}`
-    });
+  const fetcher = async () => {
+      return request(endpoint, query, variables, {
+          authorization: `Bearer ${await getToken({template: "your-template-name"})}`
+      });
+  };
 
   return useSWR(query, blockRequest ? () => {} : fetcher);
 };
