@@ -3,18 +3,24 @@
   "version": "0.1.1",
   "private": true,
   "description": "Starter Next.js template for authenticating requests to Hasura with Clerk",
-  "keywords": ["clerk", "hasura", "nextjs", "react", "graphql"],
+  "keywords": [
+    "clerk",
+    "hasura",
+    "nextjs",
+    "react",
+    "graphql"
+  ],
   "scripts": {
     "build": "next build",
     "dev": "next dev",
     "start": "next start"
   },
   "dependencies": {
-    "@clerk/nextjs": "next",
-    "graphql-request": "^4.0.0",
-    "next": "^12.1.0",
+    "@clerk/nextjs": "^4.0.2",
+    "graphql-request": "^4.3.0",
+    "next": "^12.2.4",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
-    "swr": "^1.2.0"
+    "swr": "^1.3.0"
   }
 }
