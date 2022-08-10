@@ -1,9 +1,10 @@
-import Header from "./Header";
+import styles from '/styles/Home.module.css';
+import Header from './Header';
 
 const Layout = ({ children }) => (
   <>
     <Header />
-    <main>{children}</main>
+    <main className={styles.container}>{children}</main>
   </>
 );
 
