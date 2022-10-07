@@ -1,18 +1,30 @@
-# Clerk + Hasura Starter
+<p align="center">
+  <a href="https://clerk.dev/" target="_blank" align="center">
+    <picture>
+      <source media="(prefers-color-scheme: dark)" srcset="./docs/clerk-logo-dark.png">
+      <img src="./docs/clerk-logo-light.png" height="64">
+    </picture>
+  </a>
+  <br />
+</p>
 
-<img alt="Clerk and Hasura logos" src="./docs/logo.png" width="550" />
+# Clerk Hasura Starter
 
-This repo shows an example use case for how you can authenticate your Hasura GraphQL service requests using [Clerk](https://clerk.dev) as an authentication provider.
+This repo shows an example use case for how you can authenticate your Hasura GraphQL service requests using [Clerk](https://www.clerk.dev/?utm_source=github&utm_medium=starter_repos&utm_campaign=hasura_starter) as an authentication provider.
+
+[![chat on Discord](https://img.shields.io/discord/856971667393609759.svg?logo=discord)](https://discord.com/invite/b5rXHjAg7A)
+[![documentation](https://img.shields.io/badge/documentation-clerk-green.svg)](https://docs.clerk.dev)
+[![twitter](https://img.shields.io/twitter/follow/ClerkDev?style=social)](https://twitter.com/intent/follow?screen_name=ClerkDev)
 
 ---
 
 **Clerk is Hiring!**
 
-Would you like to work on Open Source software and help maintain this repository? [Apply today](https://apply.workable.com/clerk-dev/)
+Would you like to work on Open Source software and help maintain this repository? [Apply today!](https://apply.workable.com/clerk-dev/)
 
 ---
 
-## Where the magic happens
+## Setup
 
 The integration works by using Clerk to generate a JWT to [authenticate requests](https://hasura.io/docs/latest/graphql/core/auth/authentication/jwt.html) with Hasura. A token with the necessary claims can be created using the Hasura [JWT template](https://docs.clerk.dev/popular-guides/jwt-templates) from your Clerk dashboard and then set as a Bearer token in the `Authorization` header of requests to your GraphQL endpoint.
 
@@ -30,6 +42,7 @@ To run the example locally you need to:
 6. `npm run dev` and you are good to go.
 
 ## Validating the Hasura integration
+
 After setting the Hasura token and starting the dev server, visit http://localhost:3000/schema
 
 If you see the number of GraphQL schema types, the authenticated request to Hasura has been made successfully. If not, check your browser console and network logs for errors.
@@ -44,7 +57,7 @@ To make a GraphQL query with the `useQuery` hook, pass your query as the first p
 
 ```jsx
 const { data, error } = useQuery(
-  `{ 
+  `{
     countries {
       code
       name
@@ -68,10 +81,10 @@ const { error } = useQuery(
   }`,
   {
     country: {
-      code: 'AR',
-      name: 'Argentina',
-      capital: 'Buenos Aires'
-    }
+      code: "AR",
+      name: "Argentina",
+      capital: "Buenos Aires",
+    },
   }
 );
 ```
@@ -83,7 +96,7 @@ If you would like a request to be skipped, pass a truthy value as the third para
 ```jsx
 const skipQuery = true;
 const { data, error } = useQuery(
-  `{ 
+  `{
     countries_by_pk(code: 'AR') {
       name
     }
